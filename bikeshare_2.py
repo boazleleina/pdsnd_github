@@ -2,10 +2,13 @@ import time
 import pandas as pd
 import numpy as np
 
+# Define a dictionary mapping city names to their corresponding data files
 CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
               'washington': 'washington.csv' }
 
+
+# Function to get user input for city, month, and day to analyze
 def get_filters():
     """
     Asks user to specify a city, month, and day to analyze.
@@ -52,7 +55,34 @@ def get_filters():
     return city, month, day
 
 
+<<<<<<< HEAD
 def load_data(city):
+||||||| 5418b75
+def load_data(city, month, day):
+    """
+    Loads data for the specified city and filters by month and day if applicable.
+
+    Args:
+        (str) city - name of the city to analyze
+        (str) month - name of the month to filter by, or "all" to apply no month filter
+        (str) day - name of the day of week to filter by, or "all" to apply no day filter
+    Returns:
+        df - Pandas DataFrame containing city data filtered by month and day
+    """
+=======
+# Function to load data for a specified city and filter by month and day if applicable
+def load_data(city, month, day):
+    """
+    Loads data for the specified city and filters by month and day if applicable.
+
+    Args:
+        (str) city - name of the city to analyze
+        (str) month - name of the month to filter by, or "all" to apply no month filter
+        (str) day - name of the day of week to filter by, or "all" to apply no day filter
+    Returns:
+        df - Pandas DataFrame containing city data filtered by month and day
+    """
+>>>>>>> documentation
     df = pd.read_csv(CITY_DATA[city])
     return df
 
@@ -77,6 +107,7 @@ def filter_data(df, month, day):
     return df
 
 
+# Function to display statistics on the most frequent times of travel
 def time_stats(df):
     """Displays statistics on the most frequent times of travel."""
 
@@ -99,6 +130,7 @@ def time_stats(df):
     print('-'*40)
 
 
+# Function to display statistics on the most popular stations and trips
 def station_stats(df):
     """Displays statistics on the most popular stations and trip."""
 
@@ -118,6 +150,7 @@ def station_stats(df):
     print('-'*40)
 
 
+# Function to display statistics on total and average trip duration
 def trip_duration_stats(df):
     """Displays statistics on the total and average trip duration."""
 
@@ -134,6 +167,7 @@ def trip_duration_stats(df):
     print('-'*40)
 
 
+# Function to display statistics on bikeshare users
 def user_stats(df):
     print('\nCalculating User Stats...\n')
     start_time = time.time()
@@ -162,7 +196,12 @@ def user_stats(df):
     print('-'*40)
 
 
+<<<<<<< HEAD
 
+||||||| 5418b75
+=======
+# Main function to orchestrate the analysis and interaction with the user
+>>>>>>> documentation
 def main():
     while True:
         city, month, day = get_filters()
