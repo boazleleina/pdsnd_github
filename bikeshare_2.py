@@ -190,7 +190,7 @@ def user_stats(df):
     print('-'*40)
 
 
-
+# Main function to orchestrate the analysis and interaction with the user
 def main():
     while True:
         city, month, day = get_filters()
