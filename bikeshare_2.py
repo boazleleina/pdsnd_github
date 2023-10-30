@@ -135,42 +135,32 @@ def trip_duration_stats(df):
 
 
 def user_stats(df):
-    """Displays statistics on bikeshare users."""
-
     print('\nCalculating User Stats...\n')
     start_time = time.time()
 
-    # Display counts of user types
     if 'User Type' in df.columns:
         user_type_counts = df['User Type'].value_counts().reset_index()
-
-        # Rename the columns for clarity
         user_type_counts.columns = ['User Type', 'Count']
-
-        # Print the DataFrame without the index
-        print("The user type counts:\n")
+        print("User Type Counts:\n")
         print(user_type_counts.to_string(index=False))
-    # Display counts of gender
+
     if 'Gender' in df.columns:
         gender_counts = df['Gender'].value_counts().reset_index()
-
-        # Rename the columns for clarity
         gender_counts.columns = ['Gender', 'Count']
-
-        # Print the DataFrame without the index
-        print("The genders counts:\n")
+        print("\nGender Counts:\n")
         print(gender_counts.to_string(index=False))
-        
 
-    # Display earliest, most recent, and most common year of birth
     if 'Birth Year' in df.columns:
-        print("Most common birth year is: ", df['Birth Year'].mode().iloc[0])
-        # Get the earliest and most recent birth years
-        print("The earliest birth year is:", df['Birth Year'].min())
-        print("The most recent birth year is: ", df['Birth Year'].max())
+        common_birth_year = df['Birth Year'].mode().iloc[0]
+        earliest_birth_year = df['Birth Year'].min()
+        recent_birth_year = df['Birth Year'].max()
+        print("\nMost Common Birth Year: ", common_birth_year)
+        print("Earliest Birth Year: ", earliest_birth_year)
+        print("Most Recent Birth Year: ", recent_birth_year)
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
+
 
 
 def main():
